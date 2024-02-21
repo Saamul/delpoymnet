@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-2
+spec:
+  selector: 
+    matchLabels:
+      env: prod
+  template:
+    metadata:
+      name: big-test
+      labels:
+        env: prod
+    spec:
+      containers:
+        - name: big-test
+          image: saamul/big_test:2.0
+  replicas: 3
